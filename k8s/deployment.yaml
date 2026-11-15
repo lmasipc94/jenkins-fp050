@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: miapp
+spec:
+  replicas: 2
+  selector:
+    matchLabels: { app: miapp }
+  template:
+    metadata:
+      labels: { app: miapp }
+    spec:
+      containers:
+      - name: miapp
+        image: miapp:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8080
